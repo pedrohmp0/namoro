@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia Dos Namorados</title>
+
+    <style>
+        body{
+            background-color: rgb(139, 9, 85);
+        }
+
+        h1 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .painel{
+            margin: auto;
+            background-color: white;
+            width: 500px;
+            height: 545px;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #sim{
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -50px;
+            cursor: pointer; 
+        }
+        #sim:hover {
+            background-color: #24a524;
+        }
+        #nao:hover {
+            background-color: #6b0303;
+        }
+        #nao{
+            position: absolute;
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+
+        img {
+            width: 500px;
+            height: 300px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="painel">
+        <div id="message" class="hidden">É melhor apertar no SIM em amor rs</div>
+        <h1> Feliz Dia dos Namorados (adiantado)</h1>
+
+        <img src="/music/Fast Cat Cat Excited Sticker - Fast Cat Cat Excited Jumping - Descubre y comparte GIF.gif" alt="">
+
+        <h2>Vai me dar o c@ amor? </h2>
+        
+
+        <a href="https://www.youtube.com/watch?v=mqw446NS7W8"><button id="sim" > Sim! </button></a>
+        <button onmouseover="fuja()" id="nao"> Não! </button>
+        
+
+        <script src="script.js"></script>
+    </div>
+    <audio id="musicaFundo" src="music/music.mp3" autoplay loop controls>
+        Seu navegador não suporta o elemento de áudio.
+    <script>
+        function fuja() {
+            setTimeout(() => { // Adiciona um atraso de 200ms antes de mover o botão
+                var botaoNao = document.getElementById("nao");
+
+                var larguraJanela = window.innerWidth;
+                var alturaJanela = window.innerHeight;
+
+                var maxX = larguraJanela - botaoNao.offsetWidth - 20;
+                var maxY = alturaJanela - botaoNao.offsetHeight - 20;
+
+                var aleatorioX = Math.floor(Math.random() * maxX) + 10;
+                var aleatorioY = Math.floor(Math.random() * maxY) + 10;
+
+                botaoNao.style.left = aleatorioX + "px";
+                botaoNao.style.top = aleatorioY + "px";
+            }, 130); // Tempo de atraso em milissegundos
+        }
+
+        document.getElementById("nao").addEventListener("click", function() {
+            console.log("Botão clicado!");
+            var urlVideo = 'https://www.youtube.com/watch?v=7DaDAvkZyQ8';
+            window.open(urlVideo, '_blank');
+        });
+    </script>
+    <script>
+        function showMessage() {
+    const messageElement = document.getElementById('message');
+    messageElement.classList.remove('hidden');
+}
+
+    // Defina o tempo de atraso em milissegundos (por exemplo, 5000ms = 5 segundos)
+    const delay = 5000;
+
+    // Use setTimeout para chamar a função showMessage após o atraso especificado
+    setTimeout(showMessage, delay);
+    </script>
+
+
+
+    
+</body>
+</html>
